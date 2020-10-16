@@ -1,6 +1,6 @@
-<div class="card-columns m-5 animated fadeIn">
+<div class="card-columns m-5 animated fadeIn" >
 
-    <div (click)="verArtista(item)" *ngFor="let item of items" class="card">
+    <div (click)="verArtista(item)" *ngFor="let item of items" class="card" style="min-height: 530px; cursor: pointer;">
         <img [src]="item.images | fotoAlternativa" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{item.name}}</h5>
