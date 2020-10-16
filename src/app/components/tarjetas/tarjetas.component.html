@@ -1,0 +1,24 @@
+<div class="card-columns m-5 animated fadeIn">
+
+    <div (click)="verArtista(item)" *ngFor="let item of items" class="card">
+        <img [src]="item.images | fotoAlternativa" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p clas="card-text">
+                <span class="badge badge-pill badge-dark">
+                    {{item.album_type}}
+                </span>
+            </p>
+            <p clas="card-text">
+                <span class="badge badge-pill badge-dark">
+                    {{item.release_date |date}}
+                </span>
+            </p>
+            <p class="card-text">
+                <span *ngFor="let artista of item.artists " class="badge badge-pill badge-dark">
+                    {{artista.name}}
+                </span>
+            </p>
+        </div>
+    </div>
+</div>

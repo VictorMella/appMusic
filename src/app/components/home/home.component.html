@@ -1,0 +1,21 @@
+<app-loading *ngIf="loading"> </app-loading>
+
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+    <h3>Error</h3>
+    <p>
+        {{ mensajeError }}
+    </p>
+</div>
+
+<app-tarjetas [items]="nuevasCanciones"></app-tarjetas>
+
+<div class="row animated fadeIn" *ngIf="!loading && !error" >
+    <div class="col-4 text-left" >
+        <button (click)="getVerMenos()" class="btn btn-outline-success"> Ver menos </button>
+    </div>
+    <div class="col">
+    </div>
+    <div class="col-4 text-right">
+        <button (click)="getVerMas()" class="btn btn-outline-success"> Ver más </button>
+    </div>
+</div>
