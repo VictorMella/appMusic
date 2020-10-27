@@ -10,12 +10,12 @@
 <app-tarjetas [items]="nuevasCanciones"></app-tarjetas>
 
 <div class="row animated fadeIn" *ngIf="!loading && !error" >
-    <div class="col-4 text-left" >
-        <button (click)="getVerMenos()" class="btn btn-outline-success"> Ver menos </button>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-left" >
+        <button (click)="getVerMenos()" class="btn btn-outline-success btn-block"> Ver menos </button>
     </div>
-    <div class="col">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     </div>
-    <div class="col-4 text-right">
-        <button (click)="getVerMas()" class="btn btn-outline-success"> Ver más </button>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-right">
+        <button (click)="getVerMas()" class="btn btn-outline-success btn-block"> Ver más </button>
     </div>
 </div>

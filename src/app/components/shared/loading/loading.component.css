@@ -1,0 +1,9 @@
+
+  @media screen and (max-width: 510px) {  
+    .animated {
+      column-count: 1 !important;
+      width: 80%
+    }
+  
+  
+  }

@@ -1,0 +1,9 @@
+
+
+@media screen and (max-width: 510px) {
+  .row{
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+}

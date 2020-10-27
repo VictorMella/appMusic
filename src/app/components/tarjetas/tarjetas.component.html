@@ -1,39 +1,45 @@
-<div class="card-columns m-5 animated fadeIn" >
+<div class="row" *ngIf="!loading">
+    <div class="col">
+        <div class="card-columns animated fadeIn col-xs-12">
 
-    <div (click)="verArtista(item)" *ngFor="let item of items" class="card" style="min-height: 530px; cursor: pointer;">
-        <img [src]="item.images | fotoAlternativa" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
-            <p clas="card-text">
-                <span class="badge badge-pill badge-dark" *ngIf="item.album_type">
-                    {{item.album_type}}
-                </span>
-                <span class="badge badge-pill badge-dark" *ngIf="item.type">
-                    {{item.type}}
-                </span>
-            </p>
-            <p clas="card-text">
-                <span class="badge badge-pill badge-dark" *ngIf="item.release_date">
-                    {{item.release_date |date}}
-                </span>
-                <span class="badge badge-pill badge-dark" *ngIf="item.followers">
-                    {{item.followers.total }}
-                </span>
-            </p>
-            <p class="card-text">
-                <span *ngIf="item.artists ">
-                    <span *ngFor="let artista of item.artists " class="badge badge-pill badge-dark" >
-                        {{artista.name}}
-                    </span>
-                </span>
-                <span *ngIf="item.genres">
-                    <span *ngFor="let genero of item.genres " class="badge badge-pill badge-dark" >
-                        {{genero}}
-                    </span>
-                </span>
-             
-              
-            </p>
+            <div (click)="verArtista(item)" *ngFor="let item of items" class="card"
+                style="min-height: 530px; cursor: pointer;">
+                <img [src]="item.images | fotoAlternativa" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p clas="card-text">
+                        <span class="badge badge-pill badge-dark" *ngIf="item.album_type">
+                            {{item.album_type}}
+                        </span>
+                        <span class="badge badge-pill badge-dark" *ngIf="item.type">
+                            {{item.type}}
+                        </span>
+                    </p>
+                    <p clas="card-text">
+                        <span class="badge badge-pill badge-dark" *ngIf="item.release_date">
+                            {{item.release_date |date}}
+                        </span>
+                        <span class="badge badge-pill badge-dark" *ngIf="item.followers">
+                            {{item.followers.total }}
+                        </span>
+                    </p>
+                    <p class="card-text">
+                        <span *ngIf="item.artists ">
+                            <span *ngFor="let artista of item.artists " class="badge badge-pill badge-dark">
+                                {{artista.name}}
+                            </span>
+                        </span>
+                        <span *ngIf="item.genres">
+                            <span *ngFor="let genero of item.genres " class="badge badge-pill badge-dark">
+                                {{genero}}
+                            </span>
+                        </span>
+
+
+                    </p>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>

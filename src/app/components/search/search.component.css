@@ -1,0 +1,21 @@
+
+
+@media screen and (min-width: 511px) {
+  input{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+}
+
+@media screen and (max-width: 510px) {
+  .col{
+    width: 80%;
+  
+  }
+  input{
+    width: 75%;
+    margin-bottom: 10px;
+  }
+
+}

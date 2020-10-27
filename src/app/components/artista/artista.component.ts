@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from '../services/spotify.service';
 @Component({
   selector: 'app-artista',
-  templateUrl: './artista.component.html'
+  templateUrl: './artista.component.html',
+  styleUrls: ['./artista.component.css']
 })
 export class ArtistaComponent {
   artista = {};
