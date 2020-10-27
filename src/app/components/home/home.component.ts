@@ -15,10 +15,18 @@ export class HomeComponent {
   error: boolean;
   mensajeError: string;
   constructor(private spotify: SpotifyService) {
+    this.spotify.getToken()
+    .then(resp => {
+      console.log()
+      this.getRealese();
+      this.getContador();
+    }); 
+  }
+
+  getRealese(){
     this.spotify.getNewReleases().subscribe(
       (resp: any) => {
         this.nuevasCanciones = resp;
-        console.log('reeases', this.nuevasCanciones);
         this.loading = false;
       },
       errorServicio => {
@@ -28,9 +36,8 @@ export class HomeComponent {
         this.mensajeError = errorServicio.error.error.message;
       }
     );
-
-    this.getContador();
   }
+
 
   getContador() {
     this.spotify.getContador().subscribe((resp: any) => {

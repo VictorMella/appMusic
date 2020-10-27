@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 
@@ -9,16 +9,32 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SpotifyService {
-
+token = null
 
 
   constructor(private http: HttpClient) { }
+
+  async getToken() {
+    const body = new HttpParams()
+    .append('grant_type', 'client_credentials')
+    .append('client_id', '23ee7949d3c34e789ce9cfc5fef71167')
+    .append('client_secret', 'ad2b1e230a964abc99b7ac7e7e1cd7cf');
+
+    const obj = this.http.post('https://accounts.spotify.com/api/token', body)
+        .toPromise().then( (token: any) => {
+          this.token = `Bearer ${token['access_token']}`;
+        }, (err: any)=> {
+          console.log(err);
+    });
+
+    return obj;
+  }
 
   getQuery(query: string) {
   const url = `https://api.spotify.com/v1/${ query }`;
   const headers = new HttpHeaders({
     // tslint:disable-next-line: object-literal-key-quotes
-    Authorization: 'Bearer BQAGxciAVzy02zv8iB6Hz2pyYgDLfz7-8-N7PfWHfs3ekJ_YuhgcmNMiQUlYfko_bCcsfaQPtqw8SPC3bZc'
+    Authorization: `${this.token}`
     });
 
   return this.http.get( url, { headers });
