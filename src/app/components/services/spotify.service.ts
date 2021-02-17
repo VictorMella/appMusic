@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-
+import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 
 
@@ -17,8 +17,8 @@ token = null
   async getToken() {
     const body = new HttpParams()
     .append('grant_type', 'client_credentials')
-    .append('client_id', '23ee7949d3c34e789ce9cfc5fef71167')
-    .append('client_secret', 'ad2b1e230a964abc99b7ac7e7e1cd7cf');
+    .append('client_id', environment.client_id)
+    .append('client_secret', environment.client_secret);
 
     const obj = this.http.post('https://accounts.spotify.com/api/token', body)
         .toPromise().then( (token: any) => {
